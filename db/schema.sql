@@ -9,11 +9,12 @@ dep_name VARCHAR(30) NOT NULL UNIQUE
 );
 
 CREATE table role (
-id INT auto_increment NOT NULL PRIMARY KEY,
+id INT auto_increment NOT NULL,
 title VARCHAR(30) NOT NULL UNIQUE,
 salary DECIMAL NOT NULL,
 dep_id INT NOT NULL,
-FOREIGN KEY (dep_id) REFERENCES department (id) ON DELETE CASCADE
+CONSTRAINT fk_department FOREIGN KEY (dep_id) REFERENCES department (id) ON DELETE CASCADE,
+PRIMARY KEY (id)
 );
 
 CREATE table employee (
